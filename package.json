@@ -1,0 +1,25 @@
+{
+  "name": "@dsx137/nable",
+  "version": "1.0.1",
+  "description": "personal lib",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts --license LICENSE",
+    "lint": "eslint index.ts",
+    "test": "npx tsx test/test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsx137/nable.git"
+  },
+  "author": "dsx137",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dsx137/nable/issues"
+  },
+  "homepage": "https://github.com/dsx137/nable#readme",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  },
+  "private": false
+}
