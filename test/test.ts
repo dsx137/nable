@@ -2,12 +2,6 @@ import * as nable from "../src/index";
 
 await nable.enableEof();
 
-const o = {
-  a: "hello",
-};
+const l = [1, 2, 3];
 
-console.log(
-  o.nApply(function () {
-    console.log(this.a);
-  })
-);
+console.log(l.onEach((it) => console.log(it)));

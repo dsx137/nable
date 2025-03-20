@@ -1,6 +1,6 @@
 {
   "name": "@dsx137/nable",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "personal lib",
   "type": "module",
   "main": "dist/index.js",
