@@ -1,6 +1,6 @@
 import * as nable from "../src/index";
 
-await nable.enableEof();
+await nable.enableHof();
 
 const l = [1, 2, 3];
 
