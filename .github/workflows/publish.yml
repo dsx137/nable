@@ -1,0 +1,33 @@
+name: publish
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  relese:
+    concurrency:
+      group: publish
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "21"
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: npm ci && npm run build
+
+      - name: Publish package on NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
