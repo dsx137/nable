@@ -1,14 +1,23 @@
 {
   "name": "@dsx137/nable",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "personal lib",
   "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "ncc build src/index.ts --license LICENSE",
+    "build": "tsc",
+    "prepublishOnly": "npm ci && npm run build",
     "lint": "eslint index.ts",
     "test": "npx tsx test/test.ts"
   },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "typescript",
+    "library"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dsx137/nable.git"
@@ -28,5 +37,7 @@
     "eslint": "^9.22.0",
     "typescript": "^5.8.2"
   },
-  "private": false
+  "publishConfig": {
+    "access": "public"
+  }
 }
