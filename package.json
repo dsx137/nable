@@ -1,8 +1,9 @@
 {
   "name": "@dsx137/nable",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "personal lib",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
     "build": "ncc build src/index.ts --license LICENSE",
     "lint": "eslint index.ts",
@@ -19,6 +20,11 @@
   },
   "homepage": "https://github.com/dsx137/nable#readme",
   "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "esbuild": "^0.25.1",
+    "eslint": "^9.22.0",
     "typescript": "^5.8.2"
   },
   "private": false

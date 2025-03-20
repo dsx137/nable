@@ -1,7 +1,13 @@
 import * as nable from "../src/index";
 
-const client = nable.lazy({
-  p: () => "helloworld!",
-});
+await nable.enableEof();
 
-console.log(client.p);
+const o = {
+  a: "hello",
+};
+
+console.log(
+  o.nApply(function () {
+    console.log(this.a);
+  })
+);
