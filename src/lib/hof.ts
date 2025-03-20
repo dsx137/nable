@@ -5,6 +5,10 @@ declare global {
     nRun<T, R>(this: T, fn: (this: T) => R): R;
     nApply<T>(this: T, fn: (this: T) => void): T;
   }
+
+  interface Array<T> {
+    onEach(this: T[], callbackfn: (value: T, index: number, array: T[]) => void): T[];
+  }
 }
 Object.defineProperty(Object.prototype, "nLet", {
   value<T, R>(this: T, fn: (it: T) => R): R {
@@ -34,6 +38,15 @@ Object.defineProperty(Object.prototype, "nRun", {
 Object.defineProperty(Object.prototype, "nApply", {
   value<T>(this: T, fn: () => void): T {
     fn.call(this);
+    return this;
+  },
+  writable: true,
+  configurable: true,
+});
+
+Object.defineProperty(Array.prototype, "onEach", {
+  value<T>(this: T[], callbackfn: (value: T, index: number, array: T[]) => void): T[] {
+    this.forEach(callbackfn);
     return this;
   },
   writable: true,
