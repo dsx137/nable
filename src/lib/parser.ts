@@ -7,10 +7,8 @@ export function parsePair(pair: string) {
 }
 
 export function parseList(list: string) {
-  return list.split(/\r?\n/).flatMap((line) =>
-    line
-      .split(",")
-      .map((it) => it.trim())
-      .filter((it) => it)
-  );
+  return list
+    .split(/\r?\n/)
+    .flatMap((line) => line.split(",").map((it) => it.trim()))
+    .filter((it) => it);
 }
