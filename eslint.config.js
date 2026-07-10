@@ -1,19 +1,22 @@
 import tseslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
+
+const tsFiles = ["src/**/*.ts", "test/**/*.ts"];
 
 export default [
   {
-    files: ["src/**/*.ts", "test/**/*.ts"],
+    ignores: ["dist/**", "node_modules/**"],
+  },
+  ...tseslint.configs["flat/recommended-type-checked"].map((config) => ({
+    ...config,
+    files: tsFiles,
+  })),
+  {
+    files: tsFiles,
     languageOptions: {
-      parser: tsParser,
       parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
-    plugins: {
-      "@typescript-eslint": tseslint,
-    },
-    rules: tseslint.configs.recommended.rules,
   },
 ];

@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "declaration": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "NodeNext",
     "target": "ESNext",
     "moduleResolution": "NodeNext",
-    "sourceMap": true
+    "noEmit": true,
+    "types": ["node"],
+    "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "test/**/*"]
 }

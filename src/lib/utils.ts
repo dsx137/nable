@@ -15,13 +15,25 @@ export function isIn<T>(l: readonly T[], it: unknown): it is T {
 }
 
 export function getError(error: unknown): string {
-  if (error instanceof Error) {
-    return error.message;
+  try {
+    if (error instanceof Error) {
+      return String(error.message);
+    }
+
+    return JSON.stringify(error) ?? String(error);
+  } catch {
+    try {
+      return String(error);
+    } catch {
+      return "Unknown error";
+    }
   }
-  return JSON.stringify(error);
 }
 
-export function trimObject<T extends { [key: string | number | symbol]: unknown }>(obj: T, seen = new WeakSet()): T {
+export function trimObject<T extends { [key: string | number | symbol]: unknown }>(
+  obj: T,
+  seen = new WeakSet<object>(),
+): T {
   if (seen.has(obj)) return obj;
   seen.add(obj);
 
