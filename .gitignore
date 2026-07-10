@@ -130,3 +130,5 @@ out
 .vscode
 node_modules
 dist/
+
+.sisyphus
